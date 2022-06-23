@@ -10,7 +10,14 @@ function getFiles() {
       if (err) {
         reject(err);
       } else {
-        const filesToSend = files.map((file) => file.replace("public/", ""));
+        const filesToSend = files
+          .filter(
+            (file) =>
+              file.includes(".jpg") ||
+              file.includes(".jpeg") ||
+              file.includes(".png")
+          )
+          .map((file) => file.replace("public/", ""));
         console.log(filesToSend);
         resolve(filesToSend);
       }
