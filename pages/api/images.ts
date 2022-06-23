@@ -1,21 +1,19 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import glob from "glob";
 
-function getFiles(): Promise<string[]> {
-  const fs = require("fs");
+function getFiles() {
+  const root_folder = "public";
 
-  // directory path
-  const dir = "./public";
-
-  return new Promise((resolve, reject) => {
-    fs.readdir(dir, (err: any, files: string[]) => {
+  return new Promise<string[]>((resolve, reject) => {
+    glob(root_folder + "/**", (err, files) => {
       if (err) {
         reject(err);
+      } else {
+        const filesToSend = files.map((file) => file.replace("public/", ""));
+        console.log(filesToSend);
+        resolve(filesToSend);
       }
-
-      // files object contains all files names
-      // log them on console
-      resolve(files);
     });
   });
 }
