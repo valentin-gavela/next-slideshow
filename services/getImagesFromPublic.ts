@@ -1,10 +1,10 @@
 import glob from "glob";
 
 export function getImagesFromPublic() {
-  const path = "../public"
+  const path = "./public/**"
 
   return new Promise<string[]>((resolve, reject) => {
-    glob(path + "/**", (err, files) => {
+    glob(path, (err, files) => {
       if (err) {
         reject(err);
       } else {
@@ -15,7 +15,7 @@ export function getImagesFromPublic() {
               file.includes(".jpeg") ||
               file.includes(".png")
           )
-          .map((file) => file.replace(`${path}/`, ""));
+          .map((file) => file.replace('./public/', ""));
         console.log("files", filesToSend);
         resolve(filesToSend);
       }

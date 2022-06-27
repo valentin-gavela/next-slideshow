@@ -44,7 +44,7 @@ class DB {
       return;
     }
 
-    const adapter = new JSONFile<Data>("../db.json");
+    const adapter = new JSONFile<Data>("./services/db.json");
     const db = new Low(adapter);
     await db.read();
 
