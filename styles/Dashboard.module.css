@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  gap: 20px;
+  margin: 50px 50px 50px 50px;
+  flex-wrap: wrap;
+}
+
+.col {
+  width: 32%;
+}
+
+.checkboxcontainer {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.checkbox {
+  width: 25px;
+  height: 25px;
+}
+
+.imageitem {
+  position: relative;
+}

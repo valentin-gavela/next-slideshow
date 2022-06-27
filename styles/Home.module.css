@@ -3,6 +3,7 @@
   width: auto;
   height: 100vh;
   overflow: hidden;
+  cursor: none;
 }
 
 .image {

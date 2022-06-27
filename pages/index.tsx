@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
-import Head from "next/head";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ImageType } from "../models/images";
 import styles from "../styles/Home.module.css";
 
 function shuffle(array: any[]) {
@@ -20,7 +19,7 @@ const config = {
   maxScroll: 300,
 };
 
-const Home: NextPage<{ images: string[] }> = (props) => {
+const Home: NextPage<{ images: ImageType[] }> = (props) => {
   const { images } = props;
   const pointer = useRef(0);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -82,7 +81,7 @@ const Home: NextPage<{ images: string[] }> = (props) => {
     setInterval(() => {
       next();
     }, config.timePerPicture * 2);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [imgsToShow, setImgsToShow] = useState(imgsList[0]);
@@ -107,7 +106,7 @@ const Home: NextPage<{ images: string[] }> = (props) => {
                 zoomIn && i === 1 ? `scale(${config.scaleAmount})` : "0px",
             }}
             ref={imgRef}
-            key={img}
+            key={img.id}
             className={`
           ${styles.imgcontainer} 
           ${styles.image} 
@@ -115,8 +114,8 @@ const Home: NextPage<{ images: string[] }> = (props) => {
           `}
           >
             <Image
-              src={"/" + img}
-              alt={img}
+              src={"/" + img.name}
+              alt={img.name}
               layout={"fill"}
               objectFit={"contain"}
             />
@@ -128,9 +127,12 @@ const Home: NextPage<{ images: string[] }> = (props) => {
 };
 
 export async function getServerSideProps() {
-  const images = await fetch("http://localhost:3000/api/images")
+  const images: ImageType[] = await fetch("http://localhost:3000/api/images")
     .then((res) => res.json())
-    .then((res: string[]) => shuffle(res));
+    .then((res: ImageType[]) => {
+      const filtered = res.filter((image) => image.enabled);
+      return shuffle(shuffle(shuffle(filtered)));
+    });
 
   return {
     props: { images },
