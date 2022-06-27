@@ -44,6 +44,7 @@ const Dashboard: NextPage<{ images: ImageType[] }> = (props) => {
               width={300}
               height={300}
               alt={image.name}
+              quality={50}
             />
             <div className={styles.checkboxcontainer}>
               <input
