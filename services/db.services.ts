@@ -1,6 +1,6 @@
 import { Low, JSONFile } from "lowdb";
 import { fileURLToPath } from "url";
-import { ImageType } from "../../models/images";
+import { ImageType } from "../models/images";
 import DB from "./Db";
 
 function create() {}

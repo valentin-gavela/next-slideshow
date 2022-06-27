@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ImageType } from "../../models/images";
-import DB from "../services/Db";
+import DB from "../../services/Db";
 
 export default async function handler(
   req: NextApiRequest,

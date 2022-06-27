@@ -9,6 +9,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "v18.0.0"
+  },
   "dependencies": {
     "glob": "^8.0.3",
     "lowdb": "^3.0.0",
@@ -19,6 +22,7 @@
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
+    "@types/lowdb": "^1.0.11",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",

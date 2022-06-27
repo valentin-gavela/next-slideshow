@@ -1,6 +1,6 @@
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import { Data } from "../../models/images";
+import { Data } from "../models/images";
 import { getImagesFromPublic } from "./getImagesFromPublic";
 import { v4 as uuidv4 } from "uuid";
 import { Low, JSONFile } from "lowdb";
@@ -44,7 +44,7 @@ class DB {
       return;
     }
 
-    const file = join(__dirname, "../../../db.json");
+    const file = join(__dirname, "../db.json");
     const adapter = new JSONFile<Data>(file);
     const db = new Low(adapter);
     await db.read();

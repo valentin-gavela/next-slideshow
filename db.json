@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "enabled": true,
+      "name": "arbolito.jpeg",
+      "id": "93f1a3a4-9a2d-438d-9534-6c15b0cbf56f"
+    },
+    {
+      "enabled": true,
+      "name": "beatles.jpeg",
+      "id": "182410ec-0b05-48bd-b5be-ffb414b0be3a"
+    },
+    {
+      "enabled": true,
+      "name": "FrontedRoadmap.png",
+      "id": "2193a677-67de-4a4b-80d2-c4b14ea5832a"
+    },
+    {
+      "enabled": true,
+      "name": "Hang_In_There_Baby-Gemma_Correll-Gicle_Digital_Print-trampt-78712o.jpg",
+      "id": "60546997-62c9-48fa-804b-f18fdd7dadf4"
+    },
+    {
+      "enabled": true,
+      "name": "JS_be_expert.jpeg",
+      "id": "9a8a4f83-41c4-4b6a-93c9-0a2f806118bf"
+    },
+    {
+      "enabled": true,
+      "name": "otherfolder/FrontedRoadmap.png",
+      "id": "6eba7a07-4b5d-478b-8d75-957dce38f479"
+    }
+  ]
+}
