@@ -3,7 +3,6 @@ import { join } from "path";
 
 export function getImagesFromPublic() {
   const path = join(__dirname, "../../../../public");
-  console.log("path", path);
 
   return new Promise<string[]>((resolve, reject) => {
     glob(path + "/**", (err, files) => {
