@@ -8,7 +8,7 @@ const Dashboard: NextPage<{ images: ImageType[] }> = (props) => {
   const [images, setImages] = useState(props.images);
 
   const getImages = async () => {
-    await fetch("http://localhost:3000/api/images")
+    await fetch(window.location.origin + "/api/images")
       .then((res) => res.json())
       .then((res) => setImages(res));
   };
@@ -25,7 +25,7 @@ const Dashboard: NextPage<{ images: ImageType[] }> = (props) => {
       body: JSON.stringify({ enabled: e.target.checked }),
     };
 
-    fetch(`http://localhost:3000/api/images/${id}`, requestOptions).then(
+    fetch(`${window.location.origin}/api/images/${id}`, requestOptions).then(
       (res) => {
         if (res.ok) {
           getImages();

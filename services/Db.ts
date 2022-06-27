@@ -32,7 +32,7 @@ class DB {
     this.getDb.bind(this);
     this.init.bind(this);
 
-    this.init().then(() => console.log("DB loaded"));
+    this.init().then(() => null);
   }
 
   getDb() {
