@@ -1,11 +1,11 @@
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
+// import { dirname, join } from "path";
+// import { fileURLToPath } from "url";
 import { Data } from "../models/images";
 import { getImagesFromPublic } from "./getImagesFromPublic";
 import { v4 as uuidv4 } from "uuid";
 import { Low, JSONFile } from "lowdb";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+// const __dirname = dirname(fileURLToPath(import.meta.url));
 
 async function initializeDbWithImagesFromPublic(db: Low<Data>) {
   db.data ||= { images: [] };
@@ -44,8 +44,7 @@ class DB {
       return;
     }
 
-    const file = join(__dirname, "../db.json");
-    const adapter = new JSONFile<Data>(file);
+    const adapter = new JSONFile<Data>("../db.json");
     const db = new Low(adapter);
     await db.read();
 
