@@ -16,7 +16,6 @@ export function getImagesFromPublic() {
               file.includes(".png")
           )
           .map((file) => file.replace('./public/', ""));
-        console.log("files", filesToSend);
         resolve(filesToSend);
       }
     });

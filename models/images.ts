@@ -3,7 +3,3 @@ export type ImageType = {
   name: string;
   enabled: boolean;
 };
-
-export type Data = {
-  images: ImageType[];
-};

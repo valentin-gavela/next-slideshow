@@ -9,5 +9,5 @@ export default async function handler(
   await DB.init();
   const db = DB.getDb();
 
-  res.status(200).json(db.data!.images);
+  res.status(200).json(db.getData("/images"));
 }
