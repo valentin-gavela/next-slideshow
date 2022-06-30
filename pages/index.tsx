@@ -4,8 +4,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ImageType } from "../models/images";
 import styles from "../styles/Home.module.css";
 
-function shuffle(array: any[]) {
-  return array.sort(() => Math.random() - 0.5);
+function shuffle<T>(array: T[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
 }
 
 function generateRandomIntegerInRange(min: number, max: number) {
@@ -13,7 +18,7 @@ function generateRandomIntegerInRange(min: number, max: number) {
 }
 
 const config = {
-  timePerPicture: 10 * 1000,
+  timePerPicture: 60 * 1000,
   scaleAmount: 2,
   minScroll: -300,
   maxScroll: 300,
@@ -131,7 +136,7 @@ export async function getServerSideProps() {
     .then((res) => res.json())
     .then((res: ImageType[]) => {
       const filtered = res.filter((image) => image.enabled);
-      return shuffle(shuffle(shuffle(filtered)));
+      return shuffle(filtered);
     });
 
   return {
