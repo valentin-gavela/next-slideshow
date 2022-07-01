@@ -7,7 +7,7 @@
 }
 
 .image {
-  transition: opacity 1s ease-in-out, transform 10s ease, top 10s ease,
+  transition: opacity 1s ease-in-out, transform 20s ease, top 10s ease,
     left 10s ease;
   opacity: 1;
   filter: alpha(opacity=1);
@@ -18,9 +18,6 @@
   filter: alpha(opacity=0);
 }
 
-.img {
-  transition: transform 10s ease;
-}
 /* 
 .zoomin {
   transform: scale(3.2);
