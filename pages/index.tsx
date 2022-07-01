@@ -18,7 +18,7 @@ function generateRandomIntegerInRange(min: number, max: number) {
 }
 
 const config = {
-  timePerPicture: 60 * 1000,
+  timePerPicture: 120 * 1000, //Seconds
   scaleAmount: 2,
   minScroll: -300,
   maxScroll: 300,
